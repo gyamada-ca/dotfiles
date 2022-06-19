@@ -22,7 +22,8 @@ ln -fvns "$DOTPATH/.config/nvim/lua/keymaps.lua" "$HOME/.config/nvim/lua/keymaps
 ln -fvns "$DOTPATH/.config/nvim/lua/plugins.lua" "$HOME/.config/nvim/lua/plugins.lua"
 
 mkdir -p "$HOME/.config/zsh"
+ln -fvns "$DOTPATH/.zshenv" "$HOME/.zshenv"
 ln -fvns "$DOTPATH/.config/zsh/.fzf.zsh" "$HOME/.config/zsh/.fzf.zsh"
-ln -fvns "$DOTPATH/.config/zsh/.zimrc.zsh" "$HOME/.config/zsh/.zimrc.zsh"
-ln -fvns "$DOTPATH/.config/zsh/.zshrc.zsh" "$HOME/.config/zsh/.zshrc.zsh"
+ln -fvns "$DOTPATH/.config/zsh/.zimrc" "$HOME/.config/zsh/.zimrc"
+ln -fvns "$DOTPATH/.config/zsh/.zshrc" "$HOME/.config/zsh/.zshrc"
 
