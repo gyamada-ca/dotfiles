@@ -11,7 +11,7 @@ fi
 
 cd "$DOTPATH" || exit 1
 
-mkdir -p "$XDG_CONFIG_HOME/{gitui,nvim/lua,zsh}"
+mkdir -p "$HOME/.config/{gitui,nvim/lua,zsh}"
 
 ln -fvns $DOTPATH/.config/gitui/key_bindings.ron $HOME/.config/gitui/key_bindings.ron
 

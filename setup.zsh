@@ -17,9 +17,9 @@ fi
 
 cd "$DOTPATH"
 
-deploy.zsh
+zsh deploy.zsh
 echo
 
-brew.zsh
+zsh brew.zsh
 echo
 
