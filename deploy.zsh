@@ -11,7 +11,6 @@ fi
 
 cd "$DOTPATH" || exit 1
 
-
 mkdir -p "$HOME/.config/gitui"
 ln -fvns "$DOTPATH/.config/gitui/key_bindings.ron" "$HOME/.config/gitui/key_bindings.ron"
 
@@ -26,4 +25,7 @@ ln -fvns "$DOTPATH/.zshenv" "$HOME/.zshenv"
 ln -fvns "$DOTPATH/.config/zsh/.fzf.zsh" "$HOME/.config/zsh/.fzf.zsh"
 ln -fvns "$DOTPATH/.config/zsh/.zimrc" "$HOME/.config/zsh/.zimrc"
 ln -fvns "$DOTPATH/.config/zsh/.zshrc" "$HOME/.config/zsh/.zshrc"
+
+ln -fvns "$DOTPATH/.gitconfig" "$HOME/.gitconfig"
+ln -fvns "$DOTPATH/.gitignore" "$HOME/.gitignore"
 

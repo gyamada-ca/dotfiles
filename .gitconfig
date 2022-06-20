@@ -1,0 +1,59 @@
+[user]
+    name = gactocat
+    email = gactocat@gmail.com
+
+[core]
+    excludesfile = ~/.gitignore
+	editor = nvim
+    quotepath = false
+
+[color]
+    ui = true
+
+[grep]
+    lineNumber = true
+
+[alias]
+    a = add
+
+    b = branch
+    ba = branch --all
+
+    c = commit
+    ca = commit --amend
+
+    co = checkout
+
+    d = diff
+    dc = diff --cached
+
+    delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+
+    ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+    pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
+
+    r = remote
+    ru = remote update -p
+
+    s = status --branch --short
+
+    l = log --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
+    lb = log --branches --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
+    lbr = log --branches --remotes --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
+    lr = log --remotes --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
+    lv = log --name-status --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
+
+[merge]
+    ff = false
+
+[pull]
+    ff = only
+
+[push]
+    default = current
+
+[fetch]
+    prune = true
+
+[ghq]
+	root = ~/src
