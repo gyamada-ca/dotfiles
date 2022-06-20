@@ -1,12 +1,13 @@
 setopt HIST_IGNORE_ALL_DUPS
 
 bindkey -v
-setopt CORRECT
-SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 WORDCHARS=${WORDCHARS//[\/]}
 
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+zstyle ':zim:git' aliases-prefix 'g'
+zstyle ':zim:input' double-dot-expand yes
 
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 # Download zimfw plugin manager if missing.
