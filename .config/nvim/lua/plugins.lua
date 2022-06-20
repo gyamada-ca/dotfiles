@@ -17,6 +17,9 @@ require 'packer'.startup {
         use {
             'ellisonleao/gruvbox.nvim',
             -- 'overcache/NeoSolarized',
+            config = function()
+                vim.cmd([[colorscheme gruvbox]])
+            end
         }
 
         -- LSP
