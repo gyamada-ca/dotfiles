@@ -29,3 +29,4 @@ ln -fvns "$DOTPATH/.config/zsh/.zshrc" "$HOME/.config/zsh/.zshrc"
 ln -fvns "$DOTPATH/.gitconfig" "$HOME/.gitconfig"
 ln -fvns "$DOTPATH/.gitignore" "$HOME/.gitignore"
 
+ln -fvns "$DOTPATH/.tmux.conf" "$HOME/.tmux.conf"
