@@ -35,3 +35,5 @@ for key ('k') bindkey -M vicmd ${key} history-substring-search-up
 for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 
+[ -f ${ZDOTDIR:-${HOME}}/.zshrc-export ] && source ${ZDOTDIR:-${HOME}}/.zshrc-export
+
