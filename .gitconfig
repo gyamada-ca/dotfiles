@@ -1,59 +1,62 @@
 [user]
-    name = gactocat
-    email = gactocat@gmail.com
+	name = gactocat
+	email = gactocat@gmail.com
 
 [core]
-    excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore
 	editor = nvim
-    quotepath = false
+	quotepath = false
 
 [color]
-    ui = true
+	ui = true
 
 [grep]
-    lineNumber = true
+	lineNumber = true
 
 [alias]
-    a = add
+	a = add
 
-    b = branch
-    ba = branch --all
+	b = branch
+	ba = branch --all
 
-    c = commit
-    ca = commit --amend
+	c = commit
+	ca = commit --amend
 
-    co = checkout
+	co = checkout
 
-    d = diff
-    dc = diff --cached
+	d = diff
+	dc = diff --cached
 
-    delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+	delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 
-    ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
-    pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
+	ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+	pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
 
-    r = remote
-    ru = remote update -p
+	r = remote
+	ru = remote update -p
 
-    s = status --branch --short
+	s = status --branch --short
 
-    l = log --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
-    lb = log --branches --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
-    lbr = log --branches --remotes --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
-    lr = log --remotes --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
-    lv = log --name-status --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
+	l = log --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
+	lb = log --branches --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
+	lbr = log --branches --remotes --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
+	lr = log --remotes --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
+	lv = log --name-status --abbrev-commit --date=iso --graph --pretty=format:'%C(red)%h %C(yellow)%d%C(green)%cd %C(blue)%cn\n%C(reset)%s\n'
 
 [merge]
-    ff = false
+	ff = false
 
 [pull]
-    ff = only
+	ff = only
 
 [push]
-    default = current
+	default = current
 
 [fetch]
-    prune = true
+	prune = true
 
 [ghq]
 	root = ~/src
+
+[url "git@github.com:"]
+	insteadOf = https://github.com
