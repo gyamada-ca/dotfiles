@@ -18,6 +18,7 @@ mkdir -p "$HOME/.config/nvim/lua"
 ln -fvns "$DOTPATH/.config/nvim/init.lua" "$HOME/.config/nvim/init.lua"
 ln -fvns "$DOTPATH/.config/nvim/lua/colors.lua" "$HOME/.config/nvim/lua/colors.lua"
 ln -fvns "$DOTPATH/.config/nvim/lua/keymaps.lua" "$HOME/.config/nvim/lua/keymaps.lua"
+ln -fvns "$DOTPATH/.config/nvim/lua/options.lua" "$HOME/.config/nvim/lua/options.lua"
 ln -fvns "$DOTPATH/.config/nvim/lua/plugins.lua" "$HOME/.config/nvim/lua/plugins.lua"
 
 mkdir -p "$HOME/.config/zsh"

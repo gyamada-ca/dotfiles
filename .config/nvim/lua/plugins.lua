@@ -1,8 +1,24 @@
+-- install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    vim.fn.system { 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path }
+    vim.fn.system {
+        'git',
+        'clone',
+        'https://github.com/wbthomason/packer.nvim',
+        install_path
+    }
+    print "Installing packer close and reopen Neovim..."
     vim.api.nvim_command 'packadd packer.nvim'
 end
+
+-- compile `nvim/plugin/packer_compiled.vim` whenever this file is updated
+vim.api.nvim_create_augroup('PackerCompile', {})
+vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+    group = 'PackerCompile',
+    pattern = 'plugins.lua',
+    command = 'source <afile> | PackerCompile',
+    once = false,
+})
 
 local opts = { noremap = true, silent = true }
 
@@ -16,7 +32,6 @@ require 'packer'.startup {
         -- color schema
         use {
             'ellisonleao/gruvbox.nvim',
-            -- 'overcache/NeoSolarized',
             config = function()
                 vim.cmd([[colorscheme gruvbox]])
             end
@@ -243,7 +258,6 @@ local on_attach = function(client, bufnr)
     map(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     map(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     map(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    map(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     map(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     map(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
     map(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
@@ -272,41 +286,8 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 end
 
 ----------------
--- treesitter --
-----------------
--- require 'nvim-treesitter.configs'.setup {
---     -- A list of parser names, or 'all'
---     ensure_installed = { 'c', 'lua', 'rust' },
--- 
---     -- Install parsers synchronously (only applied to `ensure_installed`)
---     sync_install = false,
--- 
---     -- List of parsers to ignore installing (for 'all')
---     ignore_install = { 'javascript' },
--- 
---     highlight = {
---         -- `false` will disable the whole extension
---         enable = true,
--- 
---         -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
---         -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
---         -- the name of the parser)
---         -- list of language that will be disabled
---         disable = { 'c', 'rust' },
--- 
---         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
---         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
---         -- Using this option may slow down your editor, and you may see some duplicate highlights.
---         -- Instead of true it can also be a list of languages
---         additional_vim_regex_highlighting = false,
---     },
--- }
-
-----------------
 -- completion --
 ----------------
-vim.opt.completeopt = 'menu,menuone,noselect'
-
 local cmp = require 'cmp'
 cmp.setup({
     snippet = {
@@ -375,13 +356,3 @@ cmp.setup {
         })
     }
 }
-
--- compile `nvim/plugin/packer_compiled.vim` when this file is updated
-vim.api.nvim_create_augroup('PackerCompile', {})
-vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
-    group = 'PackerCompile',
-    pattern = 'plugins.lua',
-    command = 'source <afile> | PackerCompile',
-    once = false,
-})
-
