@@ -5,6 +5,7 @@ vim.g.mapleader = ' '
 
 -- normal
 
+keymap("n", "<C-q>", "<C-w>q", opts)
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
@@ -27,5 +28,4 @@ keymap("v", "c", [["_c]], opts)
 keymap("v", "p", [["_dP]], opts)
 
 -- terminal
-
 keymap('t', '<esc>', [[<C-\><C-n>]], opts)

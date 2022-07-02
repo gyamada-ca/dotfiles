@@ -100,12 +100,24 @@ require 'packer'.startup {
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
-        }
-
-        -- snipet
-        use {
             'hrsh7th/cmp-vsnip',
             'hrsh7th/vim-vsnip',
+        }
+
+        use {
+            'folke/trouble.nvim',
+            requires = 'kyazdani42/nvim-web-devicons',
+            config = function()
+                require 'trouble'.setup()
+            end,
+            setup = function()
+                vim.keymap.set("n", "<leader>xx", "<cmd>Trouble<cr>", opts)
+                vim.keymap.set("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", opts)
+                vim.keymap.set("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", opts)
+                vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<cr>", opts)
+                vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", opts)
+                vim.keymap.set("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)
+            end
         }
 
         -- file explorer
@@ -136,7 +148,15 @@ require 'packer'.startup {
                 vim.keymap.set('n', 'fb', '<cmd>Telescope buffers<CR>', opts)
                 vim.keymap.set('n', 'fh', '<cmd>Telescope help_tags<CR>', opts)
             end,
-            requires = { { 'nvim-lua/plenary.nvim' } }
+            requires = {
+                { 'nvim-lua/plenary.nvim' },
+            },
+        }
+
+        use { 'petertriho/nvim-scrollbar',
+            config = function()
+                require 'scrollbar'.setup()
+            end
         }
 
         -- status line
@@ -153,6 +173,23 @@ require 'packer'.startup {
             requires = {
                 'kyazdani42/nvim-web-devicons',
                 opt = true
+            }
+        }
+
+        use {
+            'akinsho/bufferline.nvim',
+            tag = "v2.*",
+            setup = function ()
+                vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<cr>')
+                vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<cr>')
+                vim.keymap.set('n', '[B', '<cmd>BufferLineMovePrev<cr>')
+                vim.keymap.set('n', ']B', '<cmd>BufferLineMoveNext<cr>')
+            end,
+            config = function ()
+                require'bufferline'.setup{}
+            end,
+            requires = {
+                'kyazdani42/nvim-web-devicons'
             }
         }
 
@@ -345,11 +382,9 @@ local lspkind = require 'lspkind'
 cmp.setup {
     formatting = {
         format = lspkind.cmp_format({
-            mode = 'symbol', -- show only symbol annotations
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            mode = 'symbol',
+            maxwidth = 50,
 
-            -- The function below will be called before any actual modifications from lspkind
-            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
             before = function(entry, vim_item)
                 return vim_item
             end
