@@ -24,7 +24,7 @@ local opts = { noremap = true, silent = true }
 
 require 'packer'.startup {
     function(use)
-        -- packer can manage itself
+        -- packer manage itself
         use {
             'wbthomason/packer.nvim'
         }
@@ -153,6 +153,7 @@ require 'packer'.startup {
             },
         }
 
+        -- scroll bar
         use { 'petertriho/nvim-scrollbar',
             config = function()
                 require 'scrollbar'.setup()
@@ -176,17 +177,18 @@ require 'packer'.startup {
             }
         }
 
+        -- buffer line
         use {
             'akinsho/bufferline.nvim',
             tag = "v2.*",
-            setup = function ()
+            setup = function()
                 vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<cr>')
                 vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<cr>')
                 vim.keymap.set('n', '[B', '<cmd>BufferLineMovePrev<cr>')
                 vim.keymap.set('n', ']B', '<cmd>BufferLineMoveNext<cr>')
             end,
-            config = function ()
-                require'bufferline'.setup{}
+            config = function()
+                require 'bufferline'.setup {}
             end,
             requires = {
                 'kyazdani42/nvim-web-devicons'
@@ -275,6 +277,11 @@ require 'packer'.startup {
                     }
                 }
             end,
+        }
+
+        use {
+            'tyru/open-browser.vim',
+            'tyru/open-browser-github.vim',
         }
 
         -- teraform
