@@ -284,6 +284,7 @@ require 'packer'.startup {
             branch = 'v2',
             setup = function()
                 vim.keymap.set('n', '<leader>c', '<cmd>HopChar1<cr>', { noremap = true, silent = true })
+                vim.keymap.set('n', '<leader>w', '<cmd>HopWord<cr>', { noremap = true, silent = true })
             end,
             config = function()
                 require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
