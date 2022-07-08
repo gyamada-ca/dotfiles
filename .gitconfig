@@ -1,7 +1,3 @@
-[user]
-	name = gactocat
-	email = gactocat@gmail.com
-
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
