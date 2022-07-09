@@ -168,7 +168,7 @@ require 'packer'.startup {
                 require 'lualine'.setup {
                     options = {
                         theme = 'gruvbox',
-                        disabled_filetypes = { 'NvimTree' } -- disable statusline in file explorer
+                        disabled_filetypes = { 'NvimTree', 'toggleterm' } -- disable statusline in file explorer
                     }
                 }
             end,
@@ -395,8 +395,8 @@ cmp.setup({
         end,
     },
     window = {
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -413,16 +413,6 @@ cmp.setup({
     })
 })
 
--- Set configuration for specific filetype.
-cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-        { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-    }, {
-        { name = 'buffer' },
-    })
-})
-
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
@@ -430,7 +420,6 @@ cmp.setup.cmdline('/', {
     }
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
@@ -444,10 +433,9 @@ local lspkind = require 'lspkind'
 cmp.setup {
     formatting = {
         format = lspkind.cmp_format({
-            mode = 'symbol',
+            mode = 'symbol_text',
             maxwidth = 50,
-
-            before = function(entry, vim_item)
+            before = function(_, vim_item)
                 return vim_item
             end
         })
