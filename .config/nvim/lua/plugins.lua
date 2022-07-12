@@ -96,10 +96,11 @@ require 'packer'.startup {
         -- completion
         use {
             'hrsh7th/nvim-cmp',
-            'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
+            'hrsh7th/cmp-nvim-lsp',
+            "hrsh7th/cmp-nvim-lsp-document-symbol",
             'hrsh7th/cmp-vsnip',
             'hrsh7th/vim-vsnip',
         }
@@ -125,9 +126,8 @@ require 'packer'.startup {
         use {
             'kyazdani42/nvim-tree.lua',
             setup = function()
-                vim.keymap.set('n', 'fe', '<cmd>NvimTreeToggle<CR>', opts)
-                vim.keymap.set('n', 'fr', '<cmd>NvimTreeRefresh<CR>', opts)
-                vim.keymap.set('n', 'fd', '<cmd>NvimTreeFindFile<CR>', opts)
+                vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', opts)
+                vim.keymap.set('n', '<leader>d', '<cmd>NvimTreeFindFile<CR>', opts)
             end,
             config = function()
                 require 'nvim-tree'.setup {
@@ -144,10 +144,9 @@ require 'packer'.startup {
         use {
             'nvim-telescope/telescope.nvim',
             setup = function()
-                vim.keymap.set('n', 'fs', '<cmd>Telescope find_files<CR>', opts)
-                vim.keymap.set('n', 'fg', '<cmd>Telescope live_grep<CR>', opts)
-                vim.keymap.set('n', 'fb', '<cmd>Telescope buffers<CR>', opts)
-                vim.keymap.set('n', 'fh', '<cmd>Telescope help_tags<CR>', opts)
+                vim.keymap.set('n', '<leader>s', '<cmd>Telescope find_files<CR>', opts)
+                vim.keymap.set('n', '<leader>g', '<cmd>Telescope live_grep<CR>', opts)
+                vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<CR>', opts)
             end,
             requires = {
                 { 'nvim-lua/plenary.nvim' },
@@ -367,7 +366,7 @@ local on_attach = function(client, bufnr)
     map(0, 'n', '<leader>x', '<cmd>Lspsaga code_action<cr>', opts)
     map(0, 'x', '<leader>x', ':<c-u>Lspsaga range_code_action<cr>', opts)
     map(0, 'n', 'K', '<cmd>Lspsaga hover_doc<cr>', opts)
-    map(0, 'n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<cr>', opts)
+    map(0, 'n', '<leader>E', '<cmd>Lspsaga show_line_diagnostics<cr>', opts)
     map(0, 'n', '[e', '<cmd>Lspsaga diagnostic_jump_next<cr>', opts)
     map(0, 'n', ']e', '<cmd>Lspsaga diagnostic_jump_prev<cr>', opts)
     map(0, 'n', '<C-u>', '<cmd>lua require "lspsaga.action".smart_scroll_with_saga(-1, "<c-u>")<cr>', {})
