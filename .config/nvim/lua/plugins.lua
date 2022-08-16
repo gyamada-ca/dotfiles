@@ -282,8 +282,7 @@ require 'packer'.startup {
             'phaazon/hop.nvim',
             branch = 'v2',
             setup = function()
-                vim.keymap.set('n', '<leader>c', '<cmd>HopChar1<cr>', { noremap = true, silent = true })
-                vim.keymap.set('n', '<leader>w', '<cmd>HopWord<cr>', { noremap = true, silent = true })
+                vim.keymap.set('n', '<leader><Space>', '<cmd>HopWord<cr>', { noremap = true, silent = true })
             end,
             config = function()
                 require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
@@ -338,6 +337,15 @@ require 'packer'.startup {
             'tyru/open-browser-github.vim',
         }
 
+        -- golang
+        use {
+            'ray-x/go.nvim',
+            config = function()
+                require('go').setup()
+            end
+        }
+        use 'ray-x/guihua.lua'
+
         -- teraform
         use {
             'hashivim/vim-terraform',
@@ -363,8 +371,8 @@ local on_attach = function(client, bufnr)
     map(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
     map(0, 'n', '<leader>rn', '<cmd>Lspsaga rename<cr>', opts)
-    map(0, 'n', '<leader>x', '<cmd>Lspsaga code_action<cr>', opts)
-    map(0, 'x', '<leader>x', ':<c-u>Lspsaga range_code_action<cr>', opts)
+    map(0, 'n', '<leader>ca', '<cmd>Lspsaga code_action<cr>', opts)
+    map(0, 'x', '<leader>ca', ':<c-u>Lspsaga range_code_action<cr>', opts)
     map(0, 'n', 'K', '<cmd>Lspsaga hover_doc<cr>', opts)
     map(0, 'n', '<leader>E', '<cmd>Lspsaga show_line_diagnostics<cr>', opts)
     map(0, 'n', '[e', '<cmd>Lspsaga diagnostic_jump_next<cr>', opts)
