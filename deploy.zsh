@@ -27,6 +27,9 @@ ln -fvns "$DOTPATH/.config/zsh/.fzf.zsh" "$HOME/.config/zsh/.fzf.zsh"
 ln -fvns "$DOTPATH/.config/zsh/.zimrc" "$HOME/.config/zsh/.zimrc"
 ln -fvns "$DOTPATH/.config/zsh/.zshrc" "$HOME/.config/zsh/.zshrc"
 
+mkdir -p "$HOME/.config/wezterm"
+ln -fvns "$DOTPATH/.config/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
+
 ln -fvns "$DOTPATH/.gitconfig" "$HOME/.gitconfig"
 ln -fvns "$DOTPATH/.gitignore" "$HOME/.gitignore"
 
