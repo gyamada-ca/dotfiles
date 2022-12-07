@@ -106,6 +106,13 @@ require 'packer'.startup {
         }
 
         use {
+            "windwp/nvim-autopairs",
+            config = function()
+                require("nvim-autopairs").setup {}
+            end
+        }
+
+        use {
             'folke/trouble.nvim',
             requires = 'kyazdani42/nvim-web-devicons',
             config = function()
