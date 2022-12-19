@@ -17,4 +17,3 @@ opt.tabstop = 4
 opt.title = true
 opt.visualbell = true
 opt.wrap = false
-
