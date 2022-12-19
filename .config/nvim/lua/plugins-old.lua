@@ -8,7 +8,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
         install_path
     }
     print "Installing packer close and reopen Neovim..."
-    vim.api.nvim_command 'packadd packer.nvim'
+    -- vim.cmd [[packadd packer.nvim]]
 end
 
 -- compile `nvim/plugin/packer_compiled.vim` whenever this file is updated
@@ -33,11 +33,11 @@ require 'packer'.startup {
         use {
             'ellisonleao/gruvbox.nvim',
             config = function()
-                vim.cmd([[colorscheme gruvbox]])
+                -- vim.cmd([[colorscheme gruvbox]])
             end
         }
 
-        -- LSP
+        -- o LSP
         use {
             'neovim/nvim-lspconfig',
             'williamboman/nvim-lsp-installer',
@@ -93,7 +93,7 @@ require 'packer'.startup {
             run = ':TSUpdate',
         }
 
-        -- completion
+        -- o completion
         use {
             'hrsh7th/nvim-cmp',
             'hrsh7th/cmp-buffer',

@@ -10,7 +10,7 @@ local ensure_packer = function()
             'https://github.com/wbthomason/packer.nvim',
             install_path
         }
-        vim.cmd [[packadd packer.nvim]]
+        pcall(vim.cmd, 'packadd packer.nvim')
         return true
     end
     return false
@@ -19,8 +19,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require 'packer'.startup(function(use)
-    -- packer manage itself
-    use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim' -- packer manage itself
 
 
     -- basic
@@ -33,7 +32,7 @@ return require 'packer'.startup(function(use)
     use 'akinsho/bufferline.nvim' -- file tab
     use 'akinsho/toggleterm.nvim' -- terminal
     use 'nvim-telescope/telescope.nvim' -- fuzzy finder
-    use 'nvim-telescope/telescope-file-browser.nvim'
+    use 'lewis6991/gitsigns.nvim' -- git
 
     use 'williamboman/mason.nvim' -- manage LSP servers, DAP servers, linters, and formatters
 
@@ -53,6 +52,14 @@ return require 'packer'.startup(function(use)
     -- snipet
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
+
+    -- syntax highlight
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            require 'nvim-treesitter.install'.update { with_sync = true }
+        end,
+    }
 
     if packer_bootstrap then
         require 'packer'.sync()
