@@ -46,7 +46,7 @@ require 'packer'.startup {
             'ray-x/lsp_signature.nvim',
         }
 
-        -- syntax
+        -- o syntax
         use {
             'nvim-treesitter/nvim-treesitter',
             config = function()
@@ -129,7 +129,7 @@ require 'packer'.startup {
             end
         }
 
-        -- file explorer
+        -- o file explorer
         use {
             'kyazdani42/nvim-tree.lua',
             setup = function()
