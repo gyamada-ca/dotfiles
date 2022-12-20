@@ -33,13 +33,14 @@ return require 'packer'.startup(function(use)
     use 'akinsho/toggleterm.nvim' -- terminal
     use 'nvim-telescope/telescope.nvim' -- fuzzy finder
     use 'lewis6991/gitsigns.nvim' -- git
+    use 'windwp/nvim-autopairs'
     use 'williamboman/mason.nvim' -- manage LSP servers, DAP servers, linters, and formatters
 
     -- LSP
     use 'neovim/nvim-lspconfig' -- LSP client
     use 'williamboman/mason-lspconfig.nvim' -- extension to mason and provide command `:LSPInstall`
     use 'glepnir/lspsaga.nvim' -- highly performant UI for LSP
-    use 'onsails/lspkind-nvim' -- pictograms for LSP completion items 
+    use 'onsails/lspkind-nvim' -- pictograms for LSP completion items
 
     -- completion
     use 'hrsh7th/nvim-cmp'

@@ -1,7 +1,7 @@
 local telescope_status, telescope = pcall(require, 'telescope')
 if not telescope_status then return end
 
-telescope.setup()
+telescope.setup {}
 
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }

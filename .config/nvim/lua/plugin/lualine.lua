@@ -4,6 +4,9 @@ if not lualine_status then return end
 lualine.setup {
     options = {
         theme = 'gruvbox',
-        disabled_filetypes = { 'NvimTree', 'toggleterm' }
+        disabled_filetypes = {
+            'NvimTree',
+            'toggleterm'
+        }
     }
 }
