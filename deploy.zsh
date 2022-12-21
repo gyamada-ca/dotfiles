@@ -14,13 +14,9 @@ cd "$DOTPATH" || exit 1
 mkdir -p "$HOME/.config/gitui"
 ln -fvns "$DOTPATH/.config/gitui/key_bindings.ron" "$HOME/.config/gitui/key_bindings.ron"
 
-mkdir -p "$HOME/.config/nvim/lua"
+mkdir -p "$HOME/.config/nvim"
 ln -fvns "$DOTPATH/.config/nvim/init.lua" "$HOME/.config/nvim/init.lua"
-ln -fvns "$DOTPATH/.config/nvim/lua/colors.lua" "$HOME/.config/nvim/lua/colors.lua"
-ln -fvns "$DOTPATH/.config/nvim/lua/keymaps.lua" "$HOME/.config/nvim/lua/keymaps.lua"
-ln -fvns "$DOTPATH/.config/nvim/lua/options.lua" "$HOME/.config/nvim/lua/options.lua"
-ln -fvns "$DOTPATH/.config/nvim/lua/plugins.lua" "$HOME/.config/nvim/lua/plugins.lua"
-ln -fvns "$DOTPATH/.config/nvim/lua/plugin" "$HOME/.config/nvim/lua/plugin"
+ln -fvns "$DOTPATH/.config/nvim/lua" "$HOME/.config/nvim/lua"
 
 mkdir -p "$HOME/.config/zsh"
 ln -fvns "$DOTPATH/.zshenv" "$HOME/.zshenv"
@@ -34,4 +30,5 @@ ln -fvns "$DOTPATH/.config/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.l
 ln -fvns "$DOTPATH/.gitconfig" "$HOME/.gitconfig"
 ln -fvns "$DOTPATH/.gitignore" "$HOME/.gitignore"
 
-ln -fvns "$DOTPATH/.tmux.conf" "$HOME/.tmux.conf"
+mkdir -p "$HOME/.config/tmux"
+ln -fvns "$DOTPATH/.config/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"

@@ -13,8 +13,8 @@ toggleterm.setup {
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap('n', '<C-w>t', '<cmd>exe v:count1 . "ToggleTerm"<CR>', opts)
-keymap('n', '<C-w>g', '<cmd>lua _G.toggle_gitui()<CR>', opts)
+keymap('n', '<C-w>t', '<cmd>exe v:count1 . "ToggleTerm"<cr>', opts)
+keymap('n', '<C-w>g', '<cmd>lua _G.toggle_gitui()<cr>', opts)
 
 _G.toggle_gitui = function()
     if term_gitui == nil then
